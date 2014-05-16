@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="location.css" />
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {
+                        "#": "location"
+                    }
+                }
+            },
+            "inputQuery": {
+                "prototype": "native/ui/input-text.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputQuery"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<->": "@owner.query"
+                    }
+                }
+            },
+            "buttonSearch": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonSearch"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonCancel": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonCancel"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonAdd": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonAdd"
+                    }
+                },
+                "bindings": {
+                    "detail.get('place')": {
+                        "<-": "@listResults:iteration.object"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "listResults": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {
+                        "#": "listResults"
+                    },
+                    "isSelectionEnabled": true
+                },
+                "bindings": {
+                    "content": {
+                        "<-": "@owner.results"
+                    }
+                }
+            },
+            "place": {
+                "prototype": "ui/place.reel",
+                "properties": {
+                    "element": {
+                        "#": "place"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@listResults:iteration.object"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div data-montage-id="location" class="location">
+        <button data-montage-id="buttonCancel" class="nochrome cancel"><i class="ion-ios7-close-outline"></i>
+        </button>
+        <h3>Add A New Place</h3>
+        <div class="controls">
+            <input data-montage-id="inputQuery" type="text" placeholder="What kind of food do you want?" class="query" />
+            <button data-montage-id="buttonSearch" class="search"><i class="ion-search"></i> Search</button>
+        </div>
+        <div data-montage-id="listResults" class="results">
+            <div data-montage-id="place" class="result">
+                <button data-montage-id="buttonAdd"><i class="ion-plus"></i>
+                </button>
+            </div>
+        </div>
+        <img id="attribution" src="https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-non-white2.png" />
+    </div>
+</body>
+
+</html>

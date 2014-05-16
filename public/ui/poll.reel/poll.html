@@ -1,0 +1,178 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="poll.css" />
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {
+                        "#": "poll"
+                    }
+                },
+                "bindings": {
+                    "voteResults": {
+                        "<-": "@owner.votes.groupMap{.place}"
+                    },
+                    "voteWinner": {
+                        "<-": "voteResults.entries().max{.1.length}.0"
+                    }
+                }
+            },
+            "location": {
+                "prototype": "ui/location.reel",
+                "properties": {
+                    "element": {
+                        "#": "location"
+                    }
+                },
+                "listeners": [{
+                    "type": "add",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "subPlaces": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {
+                        "#": "subPlaces"
+                    }
+                },
+                "bindings": {
+                    "switchValue": {
+                        "<-": "@owner.showPicker == true ? 'add' : @owner.places.length > 0 ? 'list' : 'message'"
+                    },
+                    "classList.has('hidden')": {
+                        "<-": "@owner.places == null"
+                    }
+                }
+            },
+            "buttonNew": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonNew"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonAdd": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonAdd"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonVote": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonVote"
+                    }
+                },
+                "bindings": {
+                    "detail.get('place')": {
+                        "<-": "@listPlaces:iteration.object"
+                    },
+                    "classList.has('invisible')": {
+                        "<-": "!@owner.user && @owner.voted"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "listPlaces": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": {
+                        "#": "listPlaces"
+                    }
+                },
+                "bindings": {
+                    "content": {
+                        "<-": "@owner.places"
+                    }
+                }
+            },
+            "place": {
+                "prototype": "ui/place.reel",
+                "properties": {
+                    "element": {
+                        "#": "place"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@listPlaces:iteration.object"
+                    }
+                }
+            },
+            "voteCount": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {
+                        "#": "voteCount"
+                    }
+                },
+                "bindings": {
+                    "placeId": {
+                        "<-": "@listPlaces:iteration.object.id"
+                    },
+                    "value": {
+                        "<-": "@owner.voteResults.get(placeId).length"
+                    },
+                    "classList.has('winner')": {
+                        "<-": "@owner.voteWinner == placeId"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div data-montage-id="poll" class="poll">
+        <div data-montage-id="subPlaces">
+            <div data-arg="message" class="empty">
+                <div class="message">
+                    <p>This poll doesn't have any places to vote on yet.
+                        <br>You might want to add one before you share the link with a friend.</p>
+                    <button data-montage-id="buttonNew">Add Place</button>
+                </div>
+            </div>
+            <div data-arg="add" class="search">
+                <div data-montage-id="location" class="location"></div>
+            </div>
+            <div data-arg="list" class="list">
+                <h3>Vote for the place you want to eat</h3>
+                <div data-montage-id="listPlaces" class="places">
+                    <div data-montage-id="place" class="place">
+                        <div data-montage-id="voteCount" class="votes"></div>
+                        <button data-montage-id="buttonVote">Vote</button>
+                    </div>
+                </div>
+                <button data-montage-id="buttonAdd" class="add">Add New Place</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {
+                        "#": "login"
+                    }
+                }
+            },
+            "error": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {
+                        "#": "error"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@owner.error"
+                    },
+                    "classList.has('hidden')": {
+                        "<-": "!@owner.error"
+                    }
+                }
+            },
+            "inputUsername": {
+                "prototype": "native/ui/input-text.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputUsername"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<->": "@owner.username"
+                    }
+                }
+            },
+            "inputPassword": {
+                "prototype": "native/ui/input-text.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputPassword"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<->": "@owner.password"
+                    }
+                }
+            },
+            "inputRepeat": {
+                "prototype": "native/ui/input-text.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputRepeat"
+                    },
+                    "value": ""
+                },
+                "bindings": {
+                    "classList.has('failed')": {
+                        "<-": "value != '' && value != @inputPassword.value"
+                    },
+                    "classList.has('hidden')": {
+                        "<-": "!@owner.signup"
+                    }
+                }
+            },
+            "buttonLogin": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonLogin"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }],
+                "bindings": {
+                    "label": {
+                        "<-": "@owner.signup ? 'Sign Up' : 'Login'"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div data-montage-id="login" class="login">
+        <p data-montage-id="error" class="error">This is an error message</p>
+        <div class="container">
+            <input type="text" data-montage-id="inputUsername" placeholder="E-MAIL ADDRESS" />
+            <input type="password" data-montage-id="inputPassword" placeholder="PASSWORD" />
+            <input type="password" data-montage-id="inputRepeat" placeholder="REPEAT PASSWORD" />
+            <button data-montage-id="buttonLogin"></button>
+        </div>
+    </div>
+</body>
+
+</html>

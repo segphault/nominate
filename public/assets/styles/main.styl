@@ -1,0 +1,97 @@
+@import "base"
+
+header
+  @extends .text-shadow
+  background #216a89
+  padding 10px
+
+  .app-icon
+    app-icon($header-height)
+
+  h1
+    font-weight 300
+    font-family $font-alt
+    text-transform uppercase
+    letter-spacing 0.13em
+    
+    font-size $header-height px
+    line-height $header-height px
+    display inline-block
+    margin 0 20px
+
+    .small-caps
+      font-size 0.83em
+
+  h2
+    display none
+
+.landing header
+  background url("../images/chiliomelette.jpg")
+  background-size 100% auto
+  
+  text-align center
+  padding 40px
+
+  .app-icon
+    app-icon(125)
+
+  h1
+    font 300 4em $font-alt
+    margin 20px auto 30px
+    border-bottom 2px solid $color-fg
+    padding-bottom 15px
+    max-width 630px
+    display block
+
+  h2
+    display block
+    font 300 1.944em/2em $font-main
+
+section
+  &.action
+    background $color-bg-special
+
+  &.intro
+    background $color-bg-alt
+
+    .intro-icons
+      @extends .text-shadow
+      letter-spacing 0.25em
+
+.place
+  @extends .rounded
+  background $color-bg-alt
+  display inline-block
+
+  width 300px
+  margin 10px 5px
+
+  .action
+    background #2980a5
+    border-top 1px solid #3eb4e6
+    border-radius 0 0 3px 3px
+    padding 5px
+
+    button
+      background #59abd1
+      padding 3px 10px 3px 10px
+      font-size 0.8em
+
+      &:hover
+        background #3eb4e6
+
+  .content
+    padding 0 10px
+
+    p
+      overflow ellipsis
+      letter-spacing 0.5px
+      font-size 0.9em
+
+    p.address
+      color #59abd1
+      text-transform uppercase
+
+@-webkit-keyframes fade-in
+  0%
+    opacity 0

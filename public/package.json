@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "native": "^0.2.0",
+    "matte": "^0.2.0",
+    "montage": "^0.14.9",
+    "collections": "^1.1.0"
+  }
+}

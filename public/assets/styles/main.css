@@ -1,0 +1,205 @@
+.hidden {
+  display: none !important;
+}
+.rounded,
+.error,
+.message,
+input[type=text],
+input[type=password],
+button,
+.place {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.shadow,
+button {
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.text-shadow,
+header,
+section.intro .intro-icons {
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.error {
+  background: #891218;
+  border-left: 5px solid #f00;
+  padding: 10px;
+}
+.message {
+  background: #1b5b76;
+  border-left: 5px solid #3695c1;
+  padding: 10px;
+}
+h3 {
+  font: 300 1.5em/0.8em brandon-grotesque;
+  text-transform: uppercase;
+}
+body {
+  background: #00465a;
+  color: #fff;
+  font: 300 1.125em/1.78 proxima-nova;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #4cb3ff;
+}
+input:focus {
+  outline: none;
+  -webkit-tap-highlight-color: none;
+}
+input.failed {
+  border: 2px solid #f00 !important;
+}
+input[type=text],
+input[type=password] {
+  font-size: 0.89em;
+  font-family: proxima-nova;
+  border: none;
+  padding: 10px;
+}
+button {
+  font: 300 0.89em/1.38 brandon-grotesque;
+  text-transform: uppercase;
+  background: #3695c1;
+  color: #fff;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -o-transition: background 1s;
+  -ms-transition: background 1s;
+  transition: background 1s;
+}
+button:hover {
+  background: #50a6ce;
+}
+button:active {
+  background: #338eb7;
+}
+button.nochrome {
+  display: inline !important;
+  background: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 0;
+}
+header {
+  background: #216a89;
+  padding: 10px;
+}
+header .app-icon {
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  font-size: 50px;
+  text-align: center;
+  line-height: 60px;
+  -webkit-border-radius: 90px;
+  border-radius: 90px;
+  border: 3px solid #fff;
+  width: 60px;
+  height: 60px;
+  margin: 0;
+}
+header h1 {
+  font-weight: 300;
+  font-family: brandon-grotesque;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 60px;
+  line-height: 60px;
+  display: inline-block;
+  margin: 0 20px;
+}
+header h1 .small-caps {
+  font-size: 0.83em;
+}
+header h2 {
+  display: none;
+}
+.landing header {
+  background: url("../images/chiliomelette.jpg");
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  background-size: 100% auto;
+  text-align: center;
+  padding: 40px;
+}
+.landing header .app-icon {
+  -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  font-size: 115px;
+  text-align: center;
+  line-height: 125px;
+  -webkit-border-radius: 90px;
+  border-radius: 90px;
+  border: 3px solid #fff;
+  width: 125px;
+  height: 125px;
+  margin: 0;
+}
+.landing header h1 {
+  font: 300 4em brandon-grotesque;
+  margin: 20px auto 30px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 15px;
+  max-width: 630px;
+  display: block;
+}
+.landing header h2 {
+  display: block;
+  font: 300 1.944em/2em proxima-nova;
+}
+section.action {
+  background: #216a89;
+}
+section.intro {
+  background: #1b5b76;
+}
+section.intro .intro-icons {
+  letter-spacing: 0.25em;
+}
+.place {
+  background: #1b5b76;
+  display: inline-block;
+  width: 300px;
+  margin: 10px 5px;
+}
+.place .action {
+  background: #2980a5;
+  border-top: 1px solid #3eb4e6;
+  -webkit-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  padding: 5px;
+}
+.place .action button {
+  background: #59abd1;
+  padding: 3px 10px 3px 10px;
+  font-size: 0.8em;
+}
+.place .action button:hover {
+  background: #3eb4e6;
+}
+.place .content {
+  padding: 0 10px;
+}
+.place .content p {
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  letter-spacing: 0.5px;
+  font-size: 0.9em;
+}
+.place .content p.address {
+  color: #59abd1;
+  text-transform: uppercase;
+}
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+}

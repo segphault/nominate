@@ -1,0 +1,22 @@
+.location h3 {
+  text-align: center;
+}
+.location .cancel {
+  display: none !important;
+}
+.location #attribution {
+  margin: 10px auto;
+  display: table;
+}
+.location .controls {
+  margin: auto auto 20px;
+  display: table;
+}
+.location .controls input {
+  width: 300px;
+  margin-right: 5px;
+}
+.location .results {
+  max-width: 950px;
+  margin: auto;
+}

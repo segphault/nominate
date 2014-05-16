@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="place.css" />
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {
+                        "#": "place"
+                    }
+                }
+            },
+            "name": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {
+                        "#": "name"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@owner.value.name"
+                    }
+                }
+            },
+            "address": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {
+                        "#": "address"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@owner.value.vicinity"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div data-montage-id="place" class="place">
+        <div class="content">
+            <p data-montage-id="name" class="name"></p>
+            <p data-montage-id="address" class="address"></p>
+        </div>
+        <div class="action">
+            <div data-param="*"></div>
+        </div>
+    </div>
+</body>
+
+</html>

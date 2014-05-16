@@ -1,0 +1,108 @@
+@import "nib"
+
+$color-bg = rgb(0, 70, 90)
+$color-bg-alt = rgb(27, 91, 118)
+$color-bg-special = rgb(33, 106, 137)
+
+$color-fg = white
+
+$font-main = proxima-nova
+$font-alt = brandon-grotesque
+
+$header-height = 60
+
+.hidden
+  display none !important
+
+.rounded
+  border-radius 3px
+
+.shadow
+  box-shadow 0 1px 3px rgba(0, 0, 0, 0.5)
+
+.text-shadow
+  text-shadow: 0 2px 5px rgba(0, 0, 0, .5);
+
+.error
+  @extends .rounded
+  background #891218
+  border-left 5px solid red
+  padding 10px
+
+.message
+  @extends .rounded
+  background rgb(27, 91, 118)
+  border-left 5px solid rgb(54, 149, 193)
+  padding 10px
+
+circle(sz)
+  border-radius 90px
+  border 3px solid $color-fg
+  width sz px
+  height sz  px
+
+app-icon(sz)
+  box-shadow 0 2px 5px rgba(0, 0, 0, 0.5)
+  font-size sz - 10 px
+  text-align center
+  line-height sz px
+  circle(sz)
+  margin 0
+
+h3
+  font 300 1.5em/0.8em $font-alt
+  text-transform uppercase
+
+body
+  background $color-bg
+  color $color-fg
+
+  font 300 1.125em/1.78 $font-main
+  margin 0
+
+a
+  text-decoration none
+  color #4cb3ff
+  
+input
+  &:focus
+    outline none
+    -webkit-tap-highlight-color none
+
+input.failed
+  border 2px solid red !important
+
+input[type=text], input[type=password]
+  @extends .rounded
+
+  font-size 0.89em
+  font-family $font-main
+
+  border none
+  padding 10px
+
+button
+  @extends .rounded
+  @extends .shadow
+
+  font 300 0.89em/1.38 $font-alt
+  text-transform uppercase
+  background rgb(54, 149, 193)
+  color $color-fg
+
+  border none
+  padding 10px 20px 10px 20px
+
+  transition background 1s
+
+  &:hover
+    background lighten(rgb(54, 149, 193), 15%)
+
+  &:active
+    background darken(rgb(54, 149, 193), 5%)
+
+button.nochrome
+  display inline !important
+  background none
+  box-shadow none
+  padding 0

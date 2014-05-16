@@ -1,0 +1,26 @@
+.login {
+  margin: 35px;
+}
+.login .error {
+  width: 60%;
+  margin: 20px auto;
+}
+.login .container {
+  width: 300px;
+  margin: auto;
+}
+.login .container button {
+  margin: 0;
+  float: right;
+}
+.login .container label .label {
+  display: inline-block;
+  vertical-align: middle;
+}
+.login .container input[type=text],
+.login .container input[type=password] {
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+}

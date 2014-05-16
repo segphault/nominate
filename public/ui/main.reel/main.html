@@ -1,0 +1,183 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {
+                        "#": "main"
+                    }
+                },
+                "bindings": {
+                    "classList.has('landing')": {
+                        "<-": "@router.parts.get('root') == 'home'"
+                    }
+                }
+            },
+            "router": {
+                "prototype": "ui/router",
+                "properties": {
+                    "default": "home",
+                    "routes": [
+                        "root:identity/action:(login|signup)",
+                        "root:poll/id:.+/action:(add)?",
+                        "root:home"
+                    ]
+                }
+            },
+            "identity": {
+                "prototype": "ui/login.reel",
+                "properties": {
+                    "element": {
+                        "#": "identity"
+                    }
+                },
+                "bindings": {
+                    "signup": {
+                        "<-": "@router.parts.get('action') == 'signup'"
+                    }
+                },
+                "listeners": [{
+                    "type": "login",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }, {
+                    "type": "signup",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "poll": {
+                "prototype": "ui/poll.reel",
+                "properties": {
+                    "element": {
+                        "#": "poll"
+                    }
+                },
+                "bindings": {
+                    "pollid": {
+                        "<-": "@router.parts.get('id')"
+                    },
+                    "user": {
+                        "<-": "@owner.user"
+                    }
+                }
+            },
+            "subNav": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {
+                        "#": "subNav"
+                    }
+                },
+                "bindings": {
+                    "switchValue": {
+                        "<-": "@router.parts.get('root')"
+                    }
+                }
+            },
+            "subButtons": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {
+                        "#": "subButtons"
+                    }
+                },
+                "bindings": {
+                    "switchValue": {
+                        "<-": "@owner.user && 'poll' || 'identity'"
+                    }
+                }
+            },
+            "buttonSignup": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonSignup"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonLogin": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonLogin"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonNewPoll": {
+                "prototype": "native/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonNewPoll"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div data-montage-id="main" class="main">
+        <header>
+            <div class="app-icon ion-fork"></div>
+            <h1>Nom<span class="small-caps">inate</span></h1>
+            <h2>Helping groups of people decide where to eat</h2>
+        </header>
+        <div data-montage-id="subNav">
+            <div data-arg="home">
+                <section class="action">
+                    <div data-montage-id="subButtons" class="buttons">
+                        <div data-arg="identity">
+                            <button data-montage-id="buttonLogin">Login</button>
+                            <button data-montage-id="buttonSignup">Sign Up</button>
+                        </div>
+                        <div data-arg="poll">
+                            <button data-montage-id="buttonNewPoll">Create Poll</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="intro">
+                    <div class="intro-icons">&#xf1c0; &#xf280; &#xf1ff; &#xf280; &#xf2a8;</div>
+                    <p>NOMinate solves one of the most difficult engineering problems in existence: helping a group of people decide where to eat together. NOMinate's simple voting system cuts through the paralyzing indecision, putting an end to the conflict
+                        between pizza partisans and shwarma supporters.&nbsp;If you are planning dinner with the extended family or a working lunch with office colleagues, use NOMinate to avoid a lengthy debate.</p>
+                </section>
+                <section class="credits">
+                    <img src="images/montage-logo-full.png" class="montage-logo" />
+                    <p>NOMinate was developed by <a href="http://twitter.com/segphault">Ryan Paul</a> using <a href="http://montagestudio.com/montagejs">MontageJS</a>, an open source HTML5 framework created by <a href="http://montagestudio.com">Montage Studio</a>.
+                        The complete source code of the application is <a href="#">available from GitHub</a> under the BSD license.</p>
+                </section>
+            </div>
+            <div data-arg="poll">
+                <div data-montage-id="poll" class="poll"></div>
+            </div>
+            <div data-arg="identity">
+                <div data-montage-id="identity" class="login"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

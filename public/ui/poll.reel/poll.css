@@ -1,0 +1,28 @@
+.invisible {
+  visibility: hidden;
+}
+.poll {
+  padding: 30px;
+}
+.poll .message {
+  padding-bottom: 20px;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+}
+.poll .list h3 {
+  margin-left: 5px;
+}
+.poll .list button.add {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.poll .winner {
+  color: #ffa500 !important;
+}
+.poll .places .place {
+  -webkit-animation: fade-in 0.5s ease-in 1;
+}
+.poll .places .place .votes {
+  float: right;
+}
